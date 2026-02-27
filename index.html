@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save The Date</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Kanit", sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f8d7da, #fce4ec);
+        overflow: hidden;
+      }
+
+      .card {
+        position: relative;
+        width: 90%;
+        max-width: 420px;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1.5s ease-in-out;
+        background: white;
+      }
+
+      .card img {
+        width: 100%;
+        display: block;
+        transition: transform 0.8s ease;
+      }
+
+      .card:hover img {
+        transform: scale(1.05);
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        color: white;
+        text-align: center;
+      }
+
+      .overlay h1 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+      }
+
+      .overlay p {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* หัวใจลอย */
+      .heart {
+        position: absolute;
+        color: #ff6b81;
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.6;
+      }
+
+      @keyframes floatUp {
+        from {
+          transform: translateY(100vh);
+        }
+        to {
+          transform: translateY(-10vh);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <img src="images/1.webp" alt="Wedding Photo" />
+      <div class="overlay">
+        <h1>Save The Date</h1>
+        <p>11.06.2024</p>
+      </div>
+    </div>
+
+    <script>
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+
+      setInterval(createHeart, 500);
+    </script>
+  </body>
+</html>
